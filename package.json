@@ -22,8 +22,7 @@
     "build": "react-scripts build",
     "netlify": "netlify dev",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prebuild": "netlify-lambda install"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
