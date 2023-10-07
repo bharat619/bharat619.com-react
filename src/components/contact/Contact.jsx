@@ -54,7 +54,7 @@ const Contact = () => {
           </article>
         </div>
 
-        <form ref={form} onSubmit={sendEmail} aria-disabled>
+        <form ref={form} onSubmit={sendEmail}>
           <fieldset disabled={disabled}>
             <input
               type="text"
