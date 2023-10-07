@@ -5,7 +5,6 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Nav from "./components/nav/Nav";
 import Portfolio from "./components/portfolio/Portfolio";
-import Services from "./components/services/Services";
 import Testimonial from "./components/testimonial/Testimonial";
 
 const App = () => {
@@ -15,7 +14,7 @@ const App = () => {
       <Nav></Nav>
       <About></About>
       <Experience></Experience>
-      <Services></Services>
+      {/* <Services></Services> */}
       <Portfolio></Portfolio>
       <Testimonial></Testimonial>
       <Contact></Contact>

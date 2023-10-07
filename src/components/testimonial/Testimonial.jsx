@@ -5,37 +5,44 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import "./testimonial.css";
-import AVTR1 from "../../assets/avatar1.jpg";
 
 const Testimonial = () => {
   const data = [
     {
-      avatar: AVTR1,
+      name: "Super Encorian",
       review:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam voluptatibus eos molestias minus vitae ex modi laboriosam doloremque ducimus ullam necessitatibus rerum soluta ut nihil accusantium nemo et, suscipit impedit?",
-      name: "Tina Snow",
-      id: 1,
+        "Thought leadership and deligent work efforts greatly contributed to the success of the company.",
     },
     {
-      avatar: AVTR1,
+      name: "Extraordinary Client Services",
       review:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam voluptatibus eos molestias minus vitae ex modi laboriosam doloremque ducimus ullam necessitatibus rerum soluta ut nihil accusantium nemo et, suscipit impedit?",
-      name: "Tina Snow",
-      id: 2,
+        "Exceptional contributions to customer experience and client services which recognized as a key driver of the company's success.",
     },
     {
-      avatar: AVTR1,
+      name: "Award of Excellence",
       review:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam voluptatibus eos molestias minus vitae ex modi laboriosam doloremque ducimus ullam necessitatibus rerum soluta ut nihil accusantium nemo et, suscipit impedit?",
-      name: "Tina Snow",
-      id: 3,
+        "Exceptional in contributions towards delivering high standards of excellence.",
+    },
+    {
+      name: "Budding star award",
+      review: "Dedication and passion that was exhibited towards the work.",
+    },
+    {
+      name: "Machine Learning Hackathons",
+      review:
+        "3rd Position in the Hackathon in machine learning conducted by Great Lakes.",
+    },
+    {
+      name: "Dashing Kiprosher",
+      review:
+        "Quick learning, contribution and delivering product with high standards and quality.",
     },
   ];
 
   return (
     <section id="testimonials">
-      <h5>Review from clients</h5>
-      <h2>Testimonials</h2>
+      <h5>Awards from workplace</h5>
+      <h2>Awards</h2>
       <Swiper
         className="container testimonials__container"
         spaceBetween={40}
@@ -45,9 +52,9 @@ const Testimonial = () => {
       >
         {data.map((d) => (
           <SwiperSlide className="testimonial">
-            <div className="client__avatar">
+            {/* <div className="client__avatar">
               <img src={d.avatar} alt="" />
-            </div>
+            </div> */}
             <h5>{d.name}</h5>
             <small className="client__review">{d.review}</small>
           </SwiperSlide>
