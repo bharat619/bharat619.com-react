@@ -9,28 +9,45 @@ const Contact = () => {
   const form = useRef();
   const [disabled, setDisabled] = useState(false);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setDisabled(true);
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_EMAIL_JS_SERVICE_ID,
-        process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,
-        form.current,
-        process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          e.target.reset();
-        },
-        (error) => {
-          console.log(error.text);
+    // emailjs
+    //   .sendForm(
+    //     process.env.REACT_APP_EMAIL_JS_SERVICE_ID,
+    //     process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,
+    //     form.current,
+    //     process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log(result.text);
+    //       e.target.reset();
+    //     },
+    //     (error) => {
+    //       console.log(error.text);
+    //     }
+    //   )
+    //   .finally(() => {
+    //     setDisabled(false);
+    //   });
+    console.log(form);
+    try {
+      await fetch(
+        `${process.env.REACT_APP_NETLIFY_DOMAIN}/.netlify/functions/email`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            name: form.current.elements["name"].value,
+            email: form.current.elements["email"].value,
+            message: form.current.elements["message"].value,
+          }),
         }
-      )
-      .finally(() => {
-        setDisabled(false);
-      });
+      );
+    } catch (error) {
+    } finally {
+      setDisabled(false);
+    }
   };
   return (
     <section id="contact">
