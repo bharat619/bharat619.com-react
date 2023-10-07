@@ -20,6 +20,7 @@ exports.handler = async (event, context, callback) => {
       body: JSON.stringify({}),
     };
   } catch (error) {
+    console.log(`ERROR SENDING EMAIL ${error}`);
     return {
       statusCode: 500,
       headers: {

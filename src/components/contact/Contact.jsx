@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 
 import "./contact.css";
 import { MdOutlineEmail } from "react-icons/md";
@@ -12,26 +11,7 @@ const Contact = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
     setDisabled(true);
-    // emailjs
-    //   .sendForm(
-    //     process.env.REACT_APP_EMAIL_JS_SERVICE_ID,
-    //     process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID,
-    //     form.current,
-    //     process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log(result.text);
-    //       e.target.reset();
-    //     },
-    //     (error) => {
-    //       console.log(error.text);
-    //     }
-    //   )
-    //   .finally(() => {
-    //     setDisabled(false);
-    //   });
-    console.log(form);
+
     try {
       await fetch(
         `${process.env.REACT_APP_NETLIFY_DOMAIN}/.netlify/functions/email`,
@@ -45,6 +25,7 @@ const Contact = () => {
         }
       );
     } catch (error) {
+      console.log("ERROR SENDING EMAIL");
     } finally {
       setDisabled(false);
     }
