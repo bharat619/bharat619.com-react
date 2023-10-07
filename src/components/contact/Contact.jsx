@@ -4,7 +4,6 @@ import emailjs from "@emailjs/browser";
 import "./contact.css";
 import { MdOutlineEmail } from "react-icons/md";
 import { RiMessengerFill } from "react-icons/ri";
-import { BsWhatsapp } from "react-icons/bs";
 
 const Contact = () => {
   const form = useRef();
