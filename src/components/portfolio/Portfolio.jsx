@@ -3,7 +3,7 @@ import "./portfolio.css";
 const images = require.context("../../assets", true);
 
 const Portfolio = () => {
-  const items = [
+  const projectItems = [
     {
       link: "https://github.com/bharat619/master-gatsby",
       title: "Slick Slices",
@@ -36,37 +36,96 @@ const Portfolio = () => {
     },
   ];
 
+  const blogs = [
+    {
+      link: "https://bharat619.medium.com/understanding-dependency-injection-in-nestjs-ead0fb8a8131",
+      title: "Understanding Dependency Injection in NestJS",
+      imgName: "di-nestjs.jpg",
+    },
+    {
+      link: "https://bharat619.medium.com/complete-dive-into-typescript-part-2-4daa6a6d19fa",
+      title: "Complete Dive into TypeScript - Part 2",
+      imgName: "ts-part1.jpg",
+    },
+    {
+      link: "https://bharat619.medium.com/complete-dive-into-typescript-part-1-6014e130c95b",
+      title: "Complete Dive into TypeScript - Part 1",
+      imgName: "ts-part1.jpg",
+    },
+    {
+      link: "https://blog.kiprosh.com/use-case-comparison-between-css-grid-and-flexbox/",
+      title: "Use case comparison between CSS Grid and Flexbox",
+      imgName: "css-flexbox.jpg",
+    },
+    {
+      link: "https://blog.kiprosh.com/exploratory-data-analysis-a-vital-approach/",
+      title: "Exploratory Data Analysis - Vital approach in Data Science",
+      imgName: "eda.jpg",
+    },
+  ];
   return (
-    <section id="portfolio">
-      <h5>My Recent Work</h5>
-      <h2>Portfolio</h2>
+    <>
+      <section id="portfolio">
+        <h5>My Recent Work</h5>
+        <h2>Portfolio</h2>
 
-      <div className="container portfolio__container">
-        {items.map((item, idx) => {
-          const img = images(`./${item.imgName}`);
+        <div className="container portfolio__container">
+          {projectItems.map((item, idx) => {
+            const img = images(`./${item.imgName}`);
 
-          return (
-            <article className="portfolio__item" key={idx}>
-              <div className="portfolio__item-image">
-                <img src={img} alt="" />
-              </div>
-              <h3>{item.title}</h3>
-              <div className="portfolio__item-cta">
-                <a
-                  href={item.link}
-                  className="btn"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Github
-                </a>
-              </div>
-              <h4>{item.description}</h4>
-            </article>
-          );
-        })}
-      </div>
-    </section>
+            return (
+              <article className="portfolio__item" key={idx}>
+                <div className="portfolio__item-image">
+                  <img src={img} alt="" />
+                </div>
+                <h3>{item.title}</h3>
+                <div className="portfolio__item-cta">
+                  <a
+                    href={item.link}
+                    className="btn"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Github
+                  </a>
+                </div>
+                <h4>{item.description}</h4>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section>
+        <h5>My Blogs</h5>
+        <h2>Blogs</h2>
+
+        <div className="container portfolio__container">
+          {blogs.map((item, idx) => {
+            const img = images(`./${item.imgName}`);
+
+            return (
+              <article className="portfolio__item" key={idx}>
+                <div className="portfolio__item-image">
+                  <img src={img} alt="" />
+                </div>
+                <h3>{item.title}</h3>
+                <div className="portfolio__item-cta">
+                  <a
+                    href={item.link}
+                    className="btn"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Read More
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+    </>
   );
 };
 
