@@ -63,6 +63,29 @@ header {
   font-size: 0.9rem;
 }
 
+.header__name {
+  font-size: 2.5rem;
+  transition: var(--transition);
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+.header__name > div {
+  transition: var(--transition);
+  cursor: default;
+  position: relative;
+}
+
+.header__name > div:hover {
+  transform: scale(1.5, 0.5);
+  transition: all 50ms ease-in-out;
+  /* background-color: transparent; */
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
 /* Media queries for medium devices like tablet */
 
 @media screen and (max-width: 1024px) {

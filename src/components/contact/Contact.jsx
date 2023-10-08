@@ -28,6 +28,7 @@ const Contact = () => {
       console.log("ERROR SENDING EMAIL");
     } finally {
       setDisabled(false);
+      form.current.reset();
     }
   };
   return (
